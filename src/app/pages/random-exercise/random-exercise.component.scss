@@ -1,0 +1,36 @@
+@import '../../../assets//scss/colors.scss';
+
+main.random-exercise {
+  background-color: $cor-cinza-claro;
+
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 32px;
+
+  h2 {
+    margin-top: 32px;
+    font-family: Salsa;
+    font-size: 32px;
+    color: $cor-azul-noturno;
+  }
+  
+  select.routines-selector {
+    width: 80%;
+    padding: 16px;
+    text-align: center;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: darken($cor-cinza-claro, 12%);
+    color: $cor-azul-noturno;
+    font-family: Salsa;
+  }
+  
+  select.routines-selector:hover, select:focus {
+    outline: none;
+    border-color: #3498db;
+  }
+}

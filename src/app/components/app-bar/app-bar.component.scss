@@ -1,0 +1,17 @@
+@import '../../../assets//scss/colors.scss';
+
+header {
+  background-color: $cor-azul-noturno;
+  width: 100vw;
+  height: 60px;
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 24px;
+  
+  img {
+    height: 30px;
+    width: 30px;
+  }
+}

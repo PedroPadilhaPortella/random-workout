@@ -1,0 +1,27 @@
+@import '../../../assets//scss/colors.scss';
+
+main.home {
+  background-color: $cor-cinza-claro;
+
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    margin-top: 24px;
+
+    
+    h1 {
+      font-family: Salsa;
+      font-size: 48px;
+      color: $cor-azul-noturno;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "randon-workout": {
+    "random-workout": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/randon-workout",
+            "outputPath": "dist/random-workout",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "randon-workout:build:production"
+              "browserTarget": "random-workout:build:production"
             },
             "development": {
-              "browserTarget": "randon-workout:build:development"
+              "browserTarget": "random-workout:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "randon-workout:build"
+            "browserTarget": "random-workout:build"
           }
         },
         "test": {
