@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class RandomExerciseComponent implements OnInit {
   routines: Routine[] = [];
   exercises: Exercise[] = [];
-  selectedRoutineId: number = 0
+  selectedRoutineId: number = 1
   sortedExercise!: Exercise;
 
   constructor(private exercisesService: ExercisesService) { }
