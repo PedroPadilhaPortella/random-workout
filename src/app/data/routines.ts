@@ -1,6 +1,7 @@
 export interface Routine {
   id: number;
   name: string;
+  isSelected?: boolean;
 }
 
 export const routines: Routine[] = [

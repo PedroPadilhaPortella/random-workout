@@ -1,20 +1,110 @@
-@import '../../../assets//scss/colors.scss';
+@import '../../../assets/scss/colors.scss';
 
 main.random-workout {
   background-color: $cor-cinza-claro;
 
-  height: 100vh;
+  height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  gap: 32px;
 
-  h2 {
-    margin-top: 32px;
+  p {
+    margin-top: 12px;
     font-family: Salsa;
-    font-size: 32px;
+    font-size: 26px;
     color: $cor-azul-noturno;
   }
 
+  .error-message {
+    font-size: 22px;
+    color: $cor-error-message;
+  }
+
+  .step-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 32px;
+
+    .checkbox-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .checkbox-container {
+      position: relative;
+      padding: 5px;
+      font-family: Salsa;
+      font-size: 24px;
+      color: $cor-azul-noturno;
+    }
+
+    .checkbox-container input {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+    }
+
+    .checkbox-container input:checked+.checkmark {
+      background-color: #2196F3;
+      border: 1px solid #2196F3;
+    }
+  }
+
+  .step-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .input-exercises {
+      margin-top: 1rem;
+      padding: 12px;
+
+      color: $cor-azul-claro;
+      background-color: $cor-cinza-azure;
+      font-family: Salsa;
+      font-size: 26px;
+      font-weight: 500;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid $cor-azul-claro;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .step-3 {
+
+    .exercises-title {
+      margin-bottom: 24px;
+    }
+
+    .exercises-list {
+      text-align: center;
+      
+      p {
+        color: $cor-ciano-escuro;
+      }
+    }
+  }
+
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+    .btn {
+      width: 20vw;
+    }
+  }
 }

@@ -1,8 +1,7 @@
-import { exercises } from './../../data/exercises';
-import { Routine } from '../../data/routines';
-import { Exercise } from '../../data/exercises';
-import { ExercisesService } from './../../services/exercises.service';
 import { Component, OnInit } from '@angular/core';
+import { Exercise } from '../../data/exercises';
+import { Routine } from '../../data/routines';
+import { ExercisesService } from './../../services/exercises.service';
 
 @Component({
   selector: 'app-random-exercise',
@@ -25,7 +24,7 @@ export class RandomExerciseComponent implements OnInit {
   sortExercise() {
     const exercisesFilteredByRoutine: Exercise[] = []
 
-    exercises.forEach((exercise) => {
+    this.exercises.forEach((exercise) => {
       exercise.routines.forEach((routineId) => {
         if(routineId == this.selectedRoutineId) {
           exercisesFilteredByRoutine.push(exercise);

@@ -1,5 +1,36 @@
-<app-bar></app-bar>
+<app-bar title="Crie um treino aleatório"></app-bar>
 
 <main class="random-workout">
-  <h2>Crie um treino aleatório</h2>
+
+  <div class="step-1" *ngIf="step == 1">
+    <p>Selecione os grupos musculares do seu treino</p>
+    <div class="checkbox-list">
+      <div *ngFor="let routine of routines" class="checkbox-container">
+        {{ routine.name }}
+        <input type="checkbox" [(ngModel)]="routine.isSelected" (change)="updateSelectedMuscleGroups()" />
+      </div>
+    </div>
+  </div>
+
+  <div class="step-2" *ngIf="step == 2">
+    <p>Defina a quantidade de exercícios do seu treino de {{ showWorkoutRoutines() }}</p>
+  </div>
+
+  <div class="step-2" *ngIf="step == 2">    
+    <input type="number" class="input-exercises" [(ngModel)]="exercisesQuantity">
+  </div>
+
+  <div class="step-3" *ngIf="step == 3">
+    <p class="exercises-title">Aqui está seu treino de {{ showWorkoutRoutines() }}</p>
+    <div class="exercises-list" *ngFor="let selectedExercise of selectedExercises">
+      <p>{{ selectedExercise.name }}</p>
+    </div> 
+  </div>
+
+  <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <div class="buttons">
+    <button *ngIf="step >= 2" class="btn" (click)="previousStep()">Voltar</button>
+    <button *ngIf="step <= 2" class="btn" (click)="nextStep()">Próximo</button>
+  </div>
 </main>

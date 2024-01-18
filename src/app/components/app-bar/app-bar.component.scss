@@ -1,4 +1,4 @@
-@import '../../../assets//scss/colors.scss';
+@import '../../../assets/scss/colors.scss';
 
 header {
   background-color: $cor-azul-noturno;
@@ -8,10 +8,18 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 24px;
+  justify-content: space-between;
   
   img {
+    padding-left: 24px;
     height: 30px;
     width: 30px;
+  }
+
+  h2 {
+    font-family: Salsa;
+    font-size: 32px;
+    color: $cor-azul-celeste-profundo;
+    justify-self: center;
   }
 }
