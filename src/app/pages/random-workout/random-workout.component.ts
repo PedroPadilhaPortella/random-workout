@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Exercise } from '../../data/exercises';
-import { Routine } from '../../data/routines';
+import { MuscularGroup } from '../../data/muscular-groups';
 import { ExercisesService } from './../../services/exercises.service';
 
 @Component({
@@ -9,10 +9,10 @@ import { ExercisesService } from './../../services/exercises.service';
   styleUrls: ['./random-workout.component.scss']
 })
 export class RandomWorkoutComponent implements OnInit {
-  routines: Routine[] = [];
+  muscularGroups: MuscularGroup[] = [];
   exercises: Exercise[] = [];
 
-  selectedRoutines: Routine[] = [];
+  selectedMuscularGroups: MuscularGroup[] = [];
   selectedExercises: Exercise[] = [];
 
   step: number = 1;
@@ -24,13 +24,13 @@ export class RandomWorkoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.exercises = this.exercisesService.getExercises()
-    this.routines = this.exercisesService.getRoutines().map((routine) => {
-      return { ...routine, isSelected: false } as Routine
+    this.muscularGroups = this.exercisesService.getMuscularGroups().map((muscularGroup) => {
+      return { ...muscularGroup, isSelected: false } as MuscularGroup
     })
   }
 
   nextStep() {
-    if (this.step == 1 && this.selectedRoutines.length == 0) {
+    if (this.step == 1 && this.selectedMuscularGroups.length == 0) {
       return this.showErrorMessage('Você precisa selecionar pelo menos um grupo muscular.');
     } else {
       this.showErrorMessage('');
@@ -54,16 +54,16 @@ export class RandomWorkoutComponent implements OnInit {
   }
 
   updateSelectedMuscleGroups() {
-    this.selectedRoutines = this.routines.filter(routine => routine.isSelected);
+    this.selectedMuscularGroups = this.muscularGroups.filter(muscularGroup => muscularGroup.isSelected);
   }
 
   generateWorkout() {
     const exercisesFilteredByRoutines: Exercise[] = []
 
     this.exercises.forEach((exercise) => {
-      exercise.routines.forEach((routineId) => {
-        this.selectedRoutines.forEach((selectedRoutine) => {
-          if (routineId == selectedRoutine.id) {
+      exercise.muscularGroupIds.forEach((muscularGroupId) => {
+        this.selectedMuscularGroups.forEach((selectedMuscularGroup) => {
+          if (muscularGroupId == selectedMuscularGroup.id) {
             exercisesFilteredByRoutines.push(exercise);
             return;
           }
@@ -78,7 +78,7 @@ export class RandomWorkoutComponent implements OnInit {
   }
 
   showWorkoutRoutines() {
-    return this.selectedRoutines.map((routine) => routine.name)
+    return this.selectedMuscularGroups.map((selectedMuscularGroup) => selectedMuscularGroup.name)
       .reduce((acc: string, routine: string, index: number, array: string[]) => {
         let str = acc
         if (array.length - index > 1)

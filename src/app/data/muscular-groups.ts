@@ -1,10 +1,10 @@
-export interface Routine {
+export interface MuscularGroup {
   id: number;
   name: string;
   isSelected?: boolean;
 }
 
-export const routines: Routine[] = [
+export const muscularGroups: MuscularGroup[] = [
   { id: 1, name: 'Peitoral' },
   { id: 2, name: 'Tríceps' },
   { id: 3, name: 'Costas' },

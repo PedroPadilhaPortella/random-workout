@@ -3,8 +3,8 @@
 <main class="random-exercise">
   <h2>Sorteie um exercício aleatório</h2>
 
-  <select class="routines-selector" [(ngModel)]="selectedRoutineId" name="exercise">
-    <option *ngFor="let routine of routines" [value]="routine.id">{{ routine.name }}</option>
+  <select class="routines-selector" [(ngModel)]="selectedMuscularGroupId" name="exercise">
+    <option *ngFor="let routine of muscularGroups" [value]="routine.id">{{ routine.name }}</option>
   </select>
 
   <button class="btn" (click)="sortExercise()">Sortear Exercício</button>

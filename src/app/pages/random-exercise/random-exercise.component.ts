@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Exercise } from '../../data/exercises';
-import { Routine } from '../../data/routines';
+import { MuscularGroup } from '../../data/muscular-groups';
 import { ExercisesService } from './../../services/exercises.service';
 
 @Component({
@@ -9,30 +9,30 @@ import { ExercisesService } from './../../services/exercises.service';
   styleUrls: ['./random-exercise.component.scss']
 })
 export class RandomExerciseComponent implements OnInit {
-  routines: Routine[] = [];
+  muscularGroups: MuscularGroup[] = [];
   exercises: Exercise[] = [];
-  selectedRoutineId: number = 1
+  selectedMuscularGroupId: number = 1
   sortedExercise!: Exercise;
 
   constructor(private exercisesService: ExercisesService) { }
 
   ngOnInit(): void {
-    this.routines = this.exercisesService.getRoutines()
+    this.muscularGroups = this.exercisesService.getMuscularGroups()
     this.exercises = this.exercisesService.getExercises()
   }
 
   sortExercise() {
-    const exercisesFilteredByRoutine: Exercise[] = []
+    const exercisesFilteredByMuscularGroup: Exercise[] = []
 
     this.exercises.forEach((exercise) => {
-      exercise.routines.forEach((routineId) => {
-        if(routineId == this.selectedRoutineId) {
-          exercisesFilteredByRoutine.push(exercise);
+      exercise.muscularGroupIds.forEach((muscularGroupId) => {
+        if(muscularGroupId == this.selectedMuscularGroupId) {
+          exercisesFilteredByMuscularGroup.push(exercise);
         }
       })
     })
 
-    const randomId = Math.floor(Math.random() * exercisesFilteredByRoutine.length);
-    this.sortedExercise = exercisesFilteredByRoutine[randomId];
+    const randomId = Math.floor(Math.random() * exercisesFilteredByMuscularGroup.length);
+    this.sortedExercise = exercisesFilteredByMuscularGroup[randomId];
   }
 }

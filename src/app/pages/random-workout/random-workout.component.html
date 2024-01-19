@@ -5,7 +5,7 @@
   <div class="step-1" *ngIf="step == 1">
     <p>Selecione os grupos musculares do seu treino</p>
     <div class="checkbox-list">
-      <div *ngFor="let routine of routines" class="checkbox-container">
+      <div *ngFor="let routine of muscularGroups" class="checkbox-container">
         {{ routine.name }}
         <input type="checkbox" [(ngModel)]="routine.isSelected" (change)="updateSelectedMuscleGroups()" />
       </div>

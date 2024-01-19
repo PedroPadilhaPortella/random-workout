@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { exercises } from '../data/exercises';
-import { routines } from '../data/routines';
+import { muscularGroups } from '../data/muscular-groups';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,8 @@ export class ExercisesService {
 
   constructor() { }
 
-  getRoutines() {
-    return routines;
+  getMuscularGroups() {
+    return muscularGroups;
   }
 
   getExercises() {
