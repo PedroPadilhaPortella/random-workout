@@ -57,7 +57,7 @@ export class RandomWorkoutComponent implements OnInit {
     this.selectedMuscularGroups = this.muscularGroups.filter(muscularGroup => muscularGroup.isSelected);
   }
 
-  generateWorkout() {
+  private generateWorkout() {
     const exercisesFilteredByRoutines: Exercise[] = []
 
     this.exercises.forEach((exercise) => {
@@ -73,8 +73,13 @@ export class RandomWorkoutComponent implements OnInit {
 
     const shuffledList = [...exercisesFilteredByRoutines];
     shuffledList.sort(() => Math.random() - 0.5);
-    this.selectedExercises = shuffledList.slice(0, this.exercisesQuantity);
-    console.log(this.selectedExercises)
+    this.selectedExercises = this.removeDuplicates(shuffledList).slice(0, this.exercisesQuantity);
+  }
+
+  private removeDuplicates(exercises: Exercise[]): Exercise[] {
+    return exercises.filter((obj, index, self) => {
+      return index === self.findIndex(item => item.id === obj.id);
+    });
   }
 
   showWorkoutRoutines() {
@@ -91,7 +96,7 @@ export class RandomWorkoutComponent implements OnInit {
       })
   }
 
-  showErrorMessage(message: string) {
+  private showErrorMessage(message: string) {
     this.errorMessage = message
   }
 }

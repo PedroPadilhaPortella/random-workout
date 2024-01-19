@@ -2,6 +2,7 @@
 
 main.random-workout {
   background-color: $cor-cinza-claro;
+  overflow: scroll;
 
   height: calc(100vh - 60px);
   display: flex;
