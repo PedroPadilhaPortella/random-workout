@@ -16,7 +16,8 @@ export class RandomWorkoutComponent implements OnInit {
   selectedExercises: Exercise[] = [];
 
   step: number = 1;
-  exercisesQuantity: number = 0
+  exercisesQuantity: number = 5
+
   errorMessage: string = ''
 
   constructor(private exercisesService: ExercisesService) { }
@@ -29,10 +30,18 @@ export class RandomWorkoutComponent implements OnInit {
   }
 
   nextStep() {
-    if(this.step == 1 && this.selectedRoutines.length == 0) {
-      return this.showErrorMessage('Você precisa selecionar pelo menos um grupo muscular.')
+    if (this.step == 1 && this.selectedRoutines.length == 0) {
+      return this.showErrorMessage('Você precisa selecionar pelo menos um grupo muscular.');
+    } else {
+      this.showErrorMessage('');
     }
-   
+
+    if (this.step == 2 && this.exercisesQuantity == 0) {
+      return this.showErrorMessage('A quantidade de exercícios deve ser maior que 1');
+    } else {
+      this.showErrorMessage('');
+    }
+
     this.step += 1;
 
     if (this.step == 3) {

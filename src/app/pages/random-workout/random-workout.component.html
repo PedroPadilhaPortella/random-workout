@@ -26,9 +26,9 @@
       <p>{{ selectedExercise.name }}</p>
     </div> 
   </div>
-
-  <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
-
+  
+  <p class="error-message">{{ errorMessage }}</p>
+  
   <div class="buttons">
     <button *ngIf="step >= 2" class="btn" (click)="previousStep()">Voltar</button>
     <button *ngIf="step <= 2" class="btn" (click)="nextStep()">Próximo</button>

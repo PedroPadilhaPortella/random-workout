@@ -108,3 +108,15 @@ main.random-workout {
     }
   }
 }
+
+@media screen and (max-width: 550px) {
+  main.random-workout {
+    p {
+      font-size: 22px;
+    }
+    
+    .checkbox-container {
+      font-size: 22px;
+    }
+  }
+}

@@ -34,3 +34,12 @@ main.random-exercise {
     border-color: #3498db;
   }
 }
+
+@media screen and (max-width: 550px) {
+  main.random-exercise {
+    h2 {
+      font-size: 26px;
+    }
+    
+  }
+}
